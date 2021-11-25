@@ -20,6 +20,7 @@ public class PersonCheckDaoTest {
         pr.setGivenName("Павел");
         pr.setPatronymic("Николаевич");
         pr.setDateOfBirth(LocalDate.of(1995, 3, 18));
+        pr.setStreetCode(1);
         pr.setBuilding("10");
         pr.setExtension("2");
         pr.setApartment("121");
@@ -27,6 +28,7 @@ public class PersonCheckDaoTest {
         PersonCheckDao pcd = new PersonCheckDao();
         PersonResponse pres = pcd.checkPerson(pr);
         Assert.assertTrue(pres.isRegistered());
+        Assert.assertFalse(pres.isTemporal());
 
     }
 }
